@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="cache-control" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Raiders 2012</title>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script>
+// Completely destroy and reinit Ruffle
+delete window.RufflePlayer;
+delete window.__RUFFLE_EXTENSION__;
+
+// Wait for DOM, then force fresh init
+window.addEventListener('DOMContentLoaded', () => {
+    // Remove any existing ruffle elements
+    document.querySelectorAll('ruffle-player, ruffle-object, ruffle-embed').forEach(el => el.remove());
+    
+    // Recreate the embed
+    const container = document.querySelector('.container');
+    const embed = document.createElement('embed');
+    embed.src = 'raiders.swf?t=' + Date.now();
+    embed.width = 640;
+    embed.height = 512;
+    embed.type = 'application/x-shockwave-flash';
+    container.insertBefore(embed, container.firstChild);
+    
+    // Force Ruffle to polyfill
+    if (window.RufflePlayer) {
+        window.RufflePlayer.newest().polyfill();
+    }
+});
+</script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: black;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+  <body>
+    <div class="container">        
+        <embed src="raiders.swf" width="640" height="512" type="application/x-shockwave-flash">
+        <script>
+            window.RufflePlayer = window.RufflePlayer || {};
+            window.RufflePlayer.config = {
+                "autoplay": "on",
+                "unmuteOverlay": "hidden"
+            };
+        </script>        
+    </div>
+    <p class="footer" style="font: 8pt sans-serif; color: white;"><a href="https://github.com/hoorack/space-raiders-2012" style="color: white;">https://github.com/hoorack/space-raiders-2012</a></p>
+  </body>
+</html>
