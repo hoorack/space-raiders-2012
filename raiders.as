@@ -214,7 +214,7 @@ private const gameOverSound:Class;
 		        pngMc2.addChild( png2 );
 			pngMc2.scaleX = png2.scaleY = mainScale;		        
 		        						
-			pngMc2.x = pngMc1.x +53*mainScale;
+			pngMc2.x = pngMc1.x +23*mainScale;
 			pngMc2.y = pngMc1.y +151*mainScale;
 			
 			addChild(pngMc2);
@@ -244,7 +244,7 @@ private const gameOverSound:Class;
 		
 		private function gotourl(e:MouseEvent):void
 		{
-			navigateToURL(new URLRequest("http://goo.gl/jlnYW"));
+			navigateToURL(new URLRequest("https://petr-horak.cz/raiders.html"));
 		}
 		
 		private function runGame(e:MouseEvent):void
@@ -1433,7 +1433,7 @@ private const gameOverSound:Class;
 		}
 		
 		/*
-		private function deactivate(e:Event):void 
+		private function deactivate(e:Event):void
 		{
 			// auto-close
 			//NativeApplication.nativeApplication.exit();
